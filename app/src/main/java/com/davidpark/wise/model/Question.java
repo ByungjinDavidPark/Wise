@@ -19,8 +19,6 @@ public class Question {
     }
 
     //constructor
-
-
     public Question(int questionID, int userID, String title, int view, int vote, String content, String date) {
         this.questionID = questionID;
         this.userID = userID;
