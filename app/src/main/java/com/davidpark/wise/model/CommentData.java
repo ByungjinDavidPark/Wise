@@ -31,7 +31,7 @@ public class CommentData extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_CONTACTS + "("
-                + COMMENT_ID + " INTEGER PRIMARY KEY," + USER_ID + " INTEGER,"
+                + COMMENT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + USER_ID + " INTEGER,"
                 + QUESTION_ID + " INTEGER,"
                 + CONTENT + " TEXT,"
                 + DATE + " TEXT" + ")";

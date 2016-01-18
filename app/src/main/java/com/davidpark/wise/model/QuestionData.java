@@ -38,7 +38,7 @@ public class QuestionData extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_CONTACTS + "("
-                + QUESTION_ID + " INTEGER PRIMARY KEY," + USER_ID + " INTEGER,"
+                + QUESTION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + USER_ID + " INTEGER,"
                 + VIEW + " INTEGER,"
                 + VOTE + " INTEGER,"
                 + TITLE + " TEXT,"
@@ -80,7 +80,7 @@ public class QuestionData extends SQLiteOpenHelper {
     public List<Question> getAllQuestions(){
         List<Question> questionList = new ArrayList<Question>();
         // Select All Query
-        String selectQuery = "SELECT * FROM " + TABLE_CONTACTS;
+        String selectQuery = "SELECT * FROM " + TABLE_CONTACTS + " LIMIT 5";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
