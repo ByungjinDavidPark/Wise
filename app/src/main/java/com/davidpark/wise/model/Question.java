@@ -5,7 +5,6 @@ public class Question {
 
     //private variables
 
-    int questionID;
     int userID;
     String title;
     int view;
@@ -19,22 +18,14 @@ public class Question {
     }
 
     //constructor
-    public Question(int questionID, int userID, String title, int view, int vote, String content, String date) {
-        this.questionID = questionID;
+    public Question(int userID, String title, int view, int vote, String content, String date) {
+
         this.userID = userID;
         this.title = title;
         this.view = view;
         this.vote = vote;
         Content = content;
         this.date = date;
-    }
-
-    public int getQuestionID() {
-        return questionID;
-    }
-
-    public void setQuestionID(int questionID) {
-        this.questionID = questionID;
     }
 
     public String getTitle() {

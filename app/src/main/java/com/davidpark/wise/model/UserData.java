@@ -31,7 +31,7 @@ public class UserData extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_CONTACTS + "("
-                + USER_ID + " INTEGER PRIMARY KEY," + USER_NAME + " TEXT,"
+                + USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + USER_NAME + " TEXT,"
                 + USER_PASSWORD + " TEXT,"
                 + USER_EMAIL + " TEXT" + ")";
         db.execSQL(CREATE_CONTACTS_TABLE);

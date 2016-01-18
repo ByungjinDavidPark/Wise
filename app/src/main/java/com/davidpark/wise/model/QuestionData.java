@@ -62,7 +62,6 @@ public class QuestionData extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(QUESTION_ID, question.getQuestionID()); // Question ID
         values.put(TITLE, question.getTitle()); // Question Title
         values.put(CONTENT, question.getContent()); // Content
         values.put(USER_ID, question.getUserID()); // User ID

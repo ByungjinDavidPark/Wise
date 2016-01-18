@@ -1,5 +1,6 @@
 package com.davidpark.wise.model;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -48,5 +49,19 @@ public class CommentData extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    // Adding a new comment
+    void addComment(Comment comment, int commentID){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(QUESTION_ID, comment.getQuestionID()); //QuestionID
+        values.put(USER_ID, comment.getUserID()); //UserID
+        values.put(CONTENT, comment.getContent()); //Content
+        values.put(DATE, comment.getDate());
+
+        //Inserting Row
+        db.insert(TABLE_CONTACTS, null, values);
+        db.close();
+    }
 
 }
