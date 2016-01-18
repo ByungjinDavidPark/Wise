@@ -4,28 +4,20 @@ package com.davidpark.wise.model;
 public class Comment {
 
     //private variables
-    int commentID;
     int userID;
     int questionID;
     String content;
     String date;
 
     // constructor
-    public Comment(int commentID, int userID, int questionID, String content, String date) {
-        this.commentID = commentID;
+    public Comment(int userID, int questionID, String content, String date) {
+
         this.userID = userID;
         this.questionID = questionID;
         this.content = content;
         this.date = date;
     }
 
-    public int getCommentID() {
-        return commentID;
-    }
-
-    public void setCommentID(int commentID) {
-        this.commentID = commentID;
-    }
 
     public int getUserID() {
         return userID;
