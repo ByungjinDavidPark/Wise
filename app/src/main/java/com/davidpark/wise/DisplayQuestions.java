@@ -2,12 +2,14 @@ package com.davidpark.wise;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.davidpark.wise.model.Question;
@@ -26,6 +28,7 @@ public class DisplayQuestions extends Activity {
 
     private QuestionData questionData;
     private List<Question> questionList;
+    private Button btnAskQ;
 
 
 
@@ -37,19 +40,34 @@ public class DisplayQuestions extends Activity {
         setContentView(R.layout.display_questions);
 
         init();
-        displayDBrows();
+
 
     }
 
     private void init()
     {
+
+        btnAskQ = (Button) findViewById(R.id.btnAsk);
+        btnAskQ.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent)
+            {
+                uploadQuestion();
+                return false;
+            }
+        });
+
         questionData = new QuestionData(this);
-
-        //questionData.addQuestion(new Question(1, "Test", 0, 0, "Test", "2016"));
-
         questionList = questionData.getAllQuestions();
         Log.d("Question list element ", "" + questionList.size());
         displayDBrows();
+
+    }
+
+    public void uploadQuestion()
+    {
+        Intent intent = new Intent(this,UploadQuestion.class);
+        startActivity(intent);
 
     }
 
@@ -59,22 +77,23 @@ public class DisplayQuestions extends Activity {
         // maximum number of question that display can have ( due to limitation of size)
         int dbMaxDisplayCount = 4;
 
-        if(dbMaxDisplayCount > questionList.size())
+        if(questionList.size() < dbMaxDisplayCount)
         {
             dbMaxDisplayCount = questionList.size();
         }
 
-        questionHolder = new View[5];
+        Log.d("dbMaxDisplayCount ", "" + dbMaxDisplayCount);
+
+
+
+
+        questionHolder = new View[4];
 
         LayoutInflater vi = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
 
-        for (int dbRowCount = 0 ; dbRowCount < dbMaxDisplayCount ; dbRowCount++)
+        for (int dbRowCount = 0 ; dbRowCount < dbMaxDisplayCount; dbRowCount++)
         {
-
-
-            if (questionList.get(dbRowCount) != null)
-            {
                 View v = vi.inflate(R.layout.a_question, null);
 
                 v.setId(dbRowCount);
@@ -88,13 +107,13 @@ public class DisplayQuestions extends Activity {
 
                 // fill in any details dynamically here
                 TextView voteCount = (TextView) v.findViewById(R.id.voteCount);
-                voteCount.setText(questionList.get(dbRowCount).getVote());
+                voteCount.setText("" + questionList.get(dbRowCount).getVote());
 
                 TextView answerCount = (TextView) v.findViewById(R.id.answerCount);
-                answerCount.setText(questionList.get(dbRowCount).getView());
+                answerCount.setText("" + questionList.get(dbRowCount).getView());
 
                 TextView viewCount = (TextView) v.findViewById(R.id.viewCount);
-                viewCount.setText(questionList.get(dbRowCount).getView());
+                viewCount.setText("" + questionList.get(dbRowCount).getView());
 
                 TextView question = (TextView) v.findViewById(R.id.textQuestion);
                 question.setText(questionList.get(dbRowCount).getTitle());
@@ -103,15 +122,17 @@ public class DisplayQuestions extends Activity {
                 time.setText("asked at " + questionList.get(dbRowCount).getDate());
 
                 TextView id = (TextView) v.findViewById(R.id.textID);
-                id.setText(questionList.get(dbRowCount).getUserID());
+                id.setText(""+ questionList.get(dbRowCount).getUserID());
 
                 // insert into main view
                 ViewGroup insertPoint = (ViewGroup) findViewById(R.id.displayquestions);
-                insertPoint.addView(v, dbRowCount+1);
+                insertPoint.addView(v,dbRowCount + 1);
 
                 questionHolder[dbRowCount] = v;
 
-            }
+            Log.d("dbRowCount ", "" + dbRowCount);
+
+
         }
     }
 

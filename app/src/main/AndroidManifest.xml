@@ -28,19 +28,20 @@
         </activity>
         <activity
             android:name="com.davidpark.wise.UploadQuestion"
-            android:label="@string/sub_activity4"
-            android:parentActivityName="com.davidpark.wise.MainActivity" >
+            android:label="@string/sub_activity3"
+            android:parentActivityName="com.davidpark.wise.DisplayQuestions" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.davidpark.wise.MainActivity" />
+                android:value="com.davidpark.wise.DisplayQuestions" />
         </activity>
+
         <activity
             android:name="com.davidpark.wise.AddComment"
-            android:label="@string/sub_activity5"
-            android:parentActivityName="com.davidpark.wise.MainActivity" >
+            android:label="@string/sub_activity4"
+            android:parentActivityName="com.davidpark.wise.DisplayQuestions" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.davidpark.wise.MainActivity" />
+                android:value="com.davidpark.wise.DisplayQuestions" />
         </activity>
 
     </application>

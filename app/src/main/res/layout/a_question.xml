@@ -7,6 +7,11 @@
     android:showDividers="end"
     android:gravity="bottom"
     android:layout_margin="15dp">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="3dp"
+        android:background="@android:color/darker_gray"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -72,7 +77,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="60px">
+        android:layout_height="40px">
 
         <TextView
             android:layout_width="wrap_content"
@@ -97,5 +102,9 @@
         android:id="@+id/textID"
         android:textColor="#000000"
         android:layout_gravity="right" />
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="3dp"
+        android:background="@android:color/darker_gray"/>
 </LinearLayout>

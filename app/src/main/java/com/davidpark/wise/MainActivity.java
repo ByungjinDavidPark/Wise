@@ -9,6 +9,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.davidpark.wise.model.DataOperation;
+
 public class MainActivity extends Activity implements AdapterView.OnItemSelectedListener {
 
     private Spinner deptSelection;
@@ -51,6 +53,8 @@ public class MainActivity extends Activity implements AdapterView.OnItemSelected
                 break;
             case 1:
                 // Whatever you want to happen when the second item gets selected
+
+
                 break;
             case 2:
                 // Whatever you want to happen when the thrid item gets selected

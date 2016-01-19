@@ -1,12 +1,22 @@
 package com.davidpark.wise.model;
 
 import android.app.Activity;
+import android.os.Bundle;
 
 public class DataOperation extends Activity {
 
     private UserData userData = new UserData(this);
     private QuestionData questionData = new QuestionData(this);
     private CommentData commentData = new CommentData(this);
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        addUserData();
+        addCommentData();
+        addQuestionData();
+    }
 
     public void addUserData(){
 
