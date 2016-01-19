@@ -45,7 +45,7 @@ public class DisplayQuestions extends Activity {
     {
         questionData = new QuestionData(this);
 
-        questionData.addQuestion(new Question(1, "Test", 0, 0, "Test", "2016"));
+        //questionData.addQuestion(new Question(1, "Test", 0, 0, "Test", "2016"));
 
         questionList = questionData.getAllQuestions();
         Log.d("Question list element ", "" + questionList.size());

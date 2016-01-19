@@ -1,5 +1,6 @@
 package com.davidpark.wise.model;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -52,5 +53,16 @@ public class UserData extends SQLiteOpenHelper{
      */
 
     // Getting a single user
+    void addUser(User user){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(USER_NAME, user.getUserName());
+        values.put(USER_PASSWORD, user.getPassword());
+        values.put(USER_EMAIL, user.getEmail());
+
+        //Inserting Row
+        db.insert(TABLE_CONTACTS, null, values);
+        db.close();
+    }
 
 }
