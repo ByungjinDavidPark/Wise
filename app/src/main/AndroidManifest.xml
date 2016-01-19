@@ -18,6 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name="com.davidpark.wise.DisplayQuestions"
             android:label="@string/sub_activity1"
@@ -26,6 +27,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.davidpark.wise.MainActivity" />
         </activity>
+
+        <activity
+            android:name="com.davidpark.wise.DisplayAQuestion"
+            android:label="@string/sub_activity1"
+            android:parentActivityName="com.davidpark.wise.DisplayQuestions" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.davidpark.wise.DisplayQuestions" />
+        </activity>
+
         <activity
             android:name="com.davidpark.wise.UploadQuestion"
             android:label="@string/sub_activity3"
@@ -38,10 +49,10 @@
         <activity
             android:name="com.davidpark.wise.AddComment"
             android:label="@string/sub_activity4"
-            android:parentActivityName="com.davidpark.wise.DisplayQuestions" >
+            android:parentActivityName="com.davidpark.wise.DisplayAQuestion" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.davidpark.wise.DisplayQuestions" />
+                android:value="com.davidpark.wise.DisplayAQuestion" />
         </activity>
 
     </application>

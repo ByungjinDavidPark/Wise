@@ -10,7 +10,7 @@
         android:layout_margin="10dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="here will be question post"
-        android:id="@+id/addCommentQuestion"
+        android:id="@+id/textQuestionBody"
         android:layout_weight="0.50" />
 
 
@@ -26,7 +26,7 @@
             android:layout_margin="10dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Tag1"
-            android:id="@+id/addCommentTag1"
+            android:id="@+id/tagDept"
             android:background="#c7fdf3" />
 
         <TextView
@@ -35,7 +35,7 @@
             android:layout_margin="10dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Tag2"
-            android:id="@+id/addCommentTag2"
+            android:id="@+id/tagCourse"
             android:background="#c7fdf3"/>
 
     </LinearLayout>
@@ -55,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Comment"
-        android:id="@+id/addCommentSubmit"
+        android:id="@+id/btnAddCommment"
         android:layout_gravity="bottom|center_horizontal" />
 
 </LinearLayout>

@@ -46,7 +46,7 @@ public class AddComment extends Activity {
     private String submissionText = "null";
     private String submissionDate = "null";
 
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_comment);
         // binding

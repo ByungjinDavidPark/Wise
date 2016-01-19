@@ -143,6 +143,8 @@ public class DisplayQuestions extends Activity {
         switch (viewID)
         {
             case 0:
+                Intent intent = new Intent(this,DisplayAQuestion.class);
+                startActivity(intent);
                 break;
             case 1:
                 break;
