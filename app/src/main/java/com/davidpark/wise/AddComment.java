@@ -14,6 +14,8 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
 
+import java.util.Date;
+
 
 /**
  * Created by o0sel on 18/01/2016.
@@ -50,5 +52,6 @@ public class AddComment extends Activity {
     public String getSubmition (){
         submitionText = eTEdit.getText().toString();
         return submitionText;
+
     }
 }
