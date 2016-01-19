@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +59,7 @@ public class QuestionData extends SQLiteOpenHelper {
     }
 
     // Adding a new question
-    void addQuestion(Question question){
+    public void addQuestion(Question question){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -79,7 +80,7 @@ public class QuestionData extends SQLiteOpenHelper {
     public List<Question> getAllQuestions(){
         List<Question> questionList = new ArrayList<Question>();
         // Select All Query
-        String selectQuery = "SELECT * FROM " + TABLE_CONTACTS + " LIMIT 5";
+        String selectQuery = "SELECT * FROM " + TABLE_CONTACTS;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -94,6 +95,7 @@ public class QuestionData extends SQLiteOpenHelper {
                 question.setTitle(cursor.getString(4));
                 question.setContent(cursor.getString(5));
                 question.setDate(cursor.getString(6));
+                questionList.add(question);
             } while (cursor.moveToNext());
         }
 
