@@ -50,7 +50,7 @@ public class CommentData extends SQLiteOpenHelper {
     }
 
     // Adding a new comment
-    void addComment(Comment comment, int commentID){
+    void addComment(Comment comment){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
