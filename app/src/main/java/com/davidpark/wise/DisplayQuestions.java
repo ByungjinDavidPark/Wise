@@ -132,8 +132,6 @@ public class DisplayQuestions extends Activity {
 
         }
 
-
-
     }
 
 
