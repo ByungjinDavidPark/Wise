@@ -3,7 +3,6 @@ package com.davidpark.wise.model;
 public class User {
 
     //private variables
-    int userId;
     String userName;
     String password;
     String email;
@@ -14,22 +13,11 @@ public class User {
     }
 
     //constructor
-    public User(int id, String userName, String password, String email)
+    public User(String userName, String password, String email)
     {
-        this.userId = id;
         this.userName = userName;
         this.password = password;
         this.email = email;
-    }
-
-    //getting id
-    public int getID(){
-        return this.userId;
-    }
-
-    //setting id
-    public void setID(int id){
-        this.userId = id;
     }
 
     //getting userName
