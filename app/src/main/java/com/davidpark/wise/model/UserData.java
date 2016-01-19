@@ -65,4 +65,15 @@ public class UserData extends SQLiteOpenHelper{
         db.close();
     }
 
+    // Getting a user name
+    public String getUserName(int userID){
+        String query = "SELECT user_name FROM " + TABLE_CONTACTS + " WHERE user_id = " + userID;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        cursor.moveToFirst();
+        String userName = cursor.getString(0);
+        cursor.close();
+        return userName;
+    }
+
 }
