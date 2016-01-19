@@ -15,7 +15,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemSelected
     private static final String[]depts = {"BCS","Test"};
 
     private Spinner courseSelection;
-    private static final String[]courses = {"course 1", "course 2", "course 3"};
+    private static final String[]courses = {"ISCG 5420", "ISCG 6420", "ISCG 7420"};
 
 
     @Override
@@ -24,21 +24,22 @@ public class MainActivity extends Activity implements AdapterView.OnItemSelected
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_main);
 
-//        deptSelection = (Spinner)findViewById(R.id.deptSelection);
-//        ArrayAdapter<String>adapter1 = new ArrayAdapter<String>(MainActivity.this,
-//                android.R.layout.simple_spinner_item,depts);
+        deptSelection = (Spinner)findViewById(R.id.deptSelection);
+        ArrayAdapter<String>adapter1 = new ArrayAdapter<String>(MainActivity.this,
+                android.R.layout.simple_spinner_item,depts);
 
-//        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        deptSelection.setAdapter(adapter1);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        deptSelection.setAdapter(adapter1);
 
         courseSelection = (Spinner)findViewById(R.id.courseSelection);
         ArrayAdapter<String>adapter2 = new ArrayAdapter<String>(MainActivity.this,
                 android.R.layout.simple_spinner_item,courses);
 
 
-
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         courseSelection.setAdapter(adapter2);
+
+
         courseSelection.setOnItemSelectedListener(this);
 
     }

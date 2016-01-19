@@ -6,23 +6,45 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#ffffff">
+    android:background="#ffffff"
+    android:focusableInTouchMode="false">
 
     <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="600px"
+        android:layout_height="100px"
         android:id="@+id/deptSelection"
         android:spinnerMode="dropdown"
-        android:layout_marginTop="82dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:background="@color/theme"
+        android:contentDescription="Please Select Department"
+        android:layout_above="@+id/textView3"
+        android:layout_alignStart="@+id/textView3"
+        android:layout_marginBottom="56dp" />
 
     <Spinner
+        android:layout_width="600px"
+        android:layout_height="100px"
+        android:id="@+id/courseSelection"
+        android:spinnerMode="dropdown"
+        android:background="@color/theme"
+        android:contentDescription="Please select course"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/courseSelection"
-        android:layout_marginTop="90dp"
-        android:layout_below="@+id/deptSelection"
-        android:layout_alignParentStart="true"
-        android:spinnerMode="dropdown" />
+        android:text="Please select department"
+        android:id="@+id/textView2"
+        android:textColor="#000000"
+        android:layout_above="@+id/deptSelection"
+        android:layout_alignStart="@+id/deptSelection" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please select course"
+        android:id="@+id/textView3"
+        android:textColor="#000000"
+        android:layout_above="@+id/courseSelection"
+        android:layout_alignStart="@+id/courseSelection" />
 </RelativeLayout>
