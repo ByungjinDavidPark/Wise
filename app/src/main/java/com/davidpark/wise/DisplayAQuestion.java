@@ -20,6 +20,7 @@ public class DisplayAQuestion extends AppCompatActivity {
     private Button addComment;
     private TextView tagDept;
     private TextView tagCourse;
+    private TextView questionTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +30,6 @@ public class DisplayAQuestion extends AppCompatActivity {
 
         init();
 
-       
-
-
     }
 
     public void init() {
@@ -40,6 +38,8 @@ public class DisplayAQuestion extends AppCompatActivity {
         tagDept = (TextView) findViewById(R.id.tagDept);
         tagCourse = (TextView)findViewById(R.id.tagCourse);
         addComment = (Button) findViewById(R.id.btnAddCommment);
+        questionTitle = (TextView) findViewById(R.id.textCourseTitle);
+
 
         addComment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +48,13 @@ public class DisplayAQuestion extends AppCompatActivity {
                 startActivity(intent4);
             }
         });
+
+        Intent intent = getIntent();
+
+        tagCourse.setText(intent.getStringExtra("courseTitle"));
+        tagDept.setText(intent.getStringExtra("deptName"));
+        questionBody.setText(intent.getStringExtra("content"));
+        questionTitle.setText(intent.getStringExtra("questionTitle"));
 
     }
 }

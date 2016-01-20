@@ -187,11 +187,12 @@ public class DisplayQuestions extends AppCompatActivity {
     {
         Intent intentForDisplayAQuestion = new Intent(this,DisplayAQuestion.class);
         intentForDisplayAQuestion.putExtra("courseID",questionList.get(viewID).getCourseID());
-        intentForDisplayAQuestion.putExtra("questionID", questionList.get(viewID).getTitle());
+        intentForDisplayAQuestion.putExtra("questionTitle", questionList.get(viewID).getTitle());
         intentForDisplayAQuestion.putExtra("content", questionList.get(viewID).getContent());
         intentForDisplayAQuestion.putExtra("userID",questionList.get(viewID).getUserID());
         intentForDisplayAQuestion.putExtra("courseTitle",courseTitle);
         intentForDisplayAQuestion.putExtra("deptName","BCS");
+        startActivity(intentForDisplayAQuestion);
     }
 
 
