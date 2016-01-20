@@ -107,6 +107,7 @@ public class CommentData extends SQLiteOpenHelper {
                 comment.setQuestionID(Integer.parseInt(cursor.getString(2)));
                 comment.setContent(cursor.getString(3));
                 comment.setDate(cursor.getString(4));
+                commentList.add(comment);
             }while (cursor.moveToNext());
         }
 
