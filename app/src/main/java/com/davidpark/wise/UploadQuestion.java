@@ -78,9 +78,15 @@ public class UploadQuestion extends Activity {
                 try {
                     submissionTitle = etTitle.getText().toString();
                     submissionContent = etContent.getText().toString();
+<<<<<<< Updated upstream
                     submissionDate = getSubmissionDate();
                     uploadQuestion = new Question(userID, 1,submissionTitle, view, vote, submissionContent, submissionDate);
                     finish();
+=======
+                    submissionDate = getSubmissionDateDate();
+                    aQuestion = new Question(userID, 1, submissionTitle, view, vote, submissionContent, submissionDate);
+                    questionData.addQuestion(aQuestion);
+>>>>>>> Stashed changes
                 } catch (NullPointerException e) {
                 }
             }
