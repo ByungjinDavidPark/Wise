@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -19,16 +20,21 @@ import java.util.List;
 
 /**
  * Created by davidpark on 18/01/16.
+ *
+ * This class is to display recent questions based on
+ * user's course selection in previous activity
+ *
+ * 4 recent question will be displayed and we will plan to have "More" button or
+ *  scroll bar to expand questions
  */
-public class DisplayQuestions extends Activity {
+public class DisplayQuestions extends AppCompatActivity {
 
-
-
-    private View[] questionHolder;
-
-    private QuestionData questionData;
-    private List<Question> questionList;
-    private Button btnAskQ;
+    private View[] questionHolder; // to hold view objects
+    private QuestionData questionData; // database connection class
+    private List<Question> questionList; // list that holds recent questions
+    private Button btnAskQ; // button to ask question
+    private String courseTitle; // course id for display purpose
+    private TextView courseTitleText; // text view where course id is to be set.
 
 
 
@@ -39,11 +45,19 @@ public class DisplayQuestions extends Activity {
 
         setContentView(R.layout.display_questions);
 
+        // get data from previous activity
+        Intent getData = getIntent();
+        courseTitle = getData.getStringExtra("courseName");
+
+
         init();
 
 
     }
 
+    /**
+     *  This method is to initialise component for this class.
+     */
     private void init()
     {
 
@@ -57,13 +71,26 @@ public class DisplayQuestions extends Activity {
             }
         });
 
+        // initialise text view and set course title to view
+        courseTitleText = (TextView) findViewById(R.id.textCourseTitle);
+        courseTitleText.setText(courseTitle);
+
+
+
         questionData = new QuestionData(this);
         questionList = questionData.getAllQuestions();
+
+        //questionData.getQuestionsbyCourseName(courseTitle);
+
+
         Log.d("Question list element ", "" + questionList.size());
         displayDBrows();
 
     }
 
+    /**
+     *  This method is to start UploadQuestion when user clicked Ask Question button
+     */
     public void uploadQuestion()
     {
         Intent intent = new Intent(this,UploadQuestion.class);
@@ -71,10 +98,15 @@ public class DisplayQuestions extends Activity {
 
     }
 
+    /**
+     * This method is to create display questions that stored in database.
+     *
+     */
     public void displayDBrows()
     {
 
         // maximum number of question that display can have ( due to limitation of size)
+        // in later, more button or scrolling will be added to display more items.
         int dbMaxDisplayCount = 4;
 
         if(questionList.size() < dbMaxDisplayCount)
@@ -85,13 +117,13 @@ public class DisplayQuestions extends Activity {
         Log.d("dbMaxDisplayCount ", "" + dbMaxDisplayCount);
 
 
-
-
         questionHolder = new View[4];
 
+
+        // get layoutInflater to inject view to parent layout
         LayoutInflater vi = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-
+        // for number of db rows, display each rows
         for (int dbRowCount = 0 ; dbRowCount < dbMaxDisplayCount; dbRowCount++)
         {
                 View v = vi.inflate(R.layout.a_question, null);
@@ -105,7 +137,7 @@ public class DisplayQuestions extends Activity {
                     }
                 });
 
-                // fill in any details dynamically here
+                // fill in details dynamically
                 TextView voteCount = (TextView) v.findViewById(R.id.voteCount);
                 voteCount.setText("" + questionList.get(dbRowCount).getVote());
 
@@ -136,14 +168,22 @@ public class DisplayQuestions extends Activity {
         }
     }
 
+    @Override
+    protected void onRestart() {
+        // for refreshing activity
+        super.onRestart();
+    }
+
     public void eventFired(View view)
     {
         Log.d("View" , "" + view.getId());
         int viewID = view.getId();
+        Intent intent = new Intent(this,DisplayAQuestion.class);
+
         switch (viewID)
         {
             case 0:
-                Intent intent = new Intent(this,DisplayAQuestion.class);
+                intent.putExtra("questionTitle",questionList.get(viewID).getTitle());
                 startActivity(intent);
                 break;
             case 1:
