@@ -154,5 +154,13 @@ public class QuestionData extends SQLiteOpenHelper {
         return view;
     }
 
+    // Drop Question Table
+    public void dropTable(){
 
+        String dropQuestionTableQuery = "DROP TABLE IF EXISTS" + TABLE_CONTACTS;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        db.execSQL(dropQuestionTableQuery);
+    }
 }

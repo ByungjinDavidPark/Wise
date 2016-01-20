@@ -1,6 +1,7 @@
 package com.davidpark.wise.model;
 
 import android.app.Activity;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 public class DataOperation extends Activity {
@@ -8,6 +9,10 @@ public class DataOperation extends Activity {
     private UserData userData = new UserData(this);
     private QuestionData questionData = new QuestionData(this);
     private CommentData commentData = new CommentData(this);
+
+    private static final String USER_TABLE = "users";
+    private static final String QUESTION_TABLE = "questions";
+    private static final String COMMENT_TABLE = "comments";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
