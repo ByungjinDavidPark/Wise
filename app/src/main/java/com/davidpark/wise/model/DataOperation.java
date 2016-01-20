@@ -19,7 +19,7 @@ public class DataOperation extends Activity {
         super.onCreate(savedInstanceState);
 
         //addUserData();
-        //addCommentData();
+        addCommentData();
         addQuestionData();
         finish();
     }

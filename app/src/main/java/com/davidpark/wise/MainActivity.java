@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.davidpark.wise.model.CommentData;
 import com.davidpark.wise.model.DataOperation;
 import com.davidpark.wise.model.QuestionData;
 
@@ -31,9 +32,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private Spinner courseSelection;
     private static final String[]courses = {"Please Select Course", "ISCG5420" ,"ISCG6420", "ISCG7420"};
 
-    private static final int ISCG5420  = 0;
-    private static final int ISCG6420  = 1;
-    private static final int ISCG7420  = 2;
+    private static final int ISCG5420  = 1;
+    private static final int ISCG6420  = 2;
+    private static final int ISCG7420  = 3;
 
 
 
@@ -59,6 +60,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         db.dropTable();
         db.createTable();
         db.close();
+
+        CommentData dbForComment = new CommentData(this);
+        dbForComment.dropTable();
+        dbForComment.createTable();
+        dbForComment.close();
 
         Intent insertSampleData = new Intent(this, DataOperation.class);
         startActivity(insertSampleData);

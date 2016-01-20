@@ -2,16 +2,21 @@ package com.davidpark.wise;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.davidpark.wise.model.Comment;
 import com.davidpark.wise.model.CommentData;
 
 import org.w3c.dom.Text;
+
+import java.util.List;
 
 /**
  * Created by davidpark on 19/01/16.
@@ -23,6 +28,8 @@ public class DisplayAQuestion extends AppCompatActivity {
     private TextView tagDept;  //departmentTag
     private TextView tagCourse; // courseTag
     private TextView questionTitle; // title of question
+    private int questionID;
+    private List<Comment> commentList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +40,18 @@ public class DisplayAQuestion extends AppCompatActivity {
         init();
 
         CommentData dbConnectionComment = new CommentData(this);
-        dbConnectionComment.getCommentByQuestionID(1);
+        commentList = dbConnectionComment.getCommentByQuestionID(1);
+
+        Log.d("commentList","" + questionID);
+
+        Log.d("commentList","" + commentList.size());
 
 
-
-
+        if (commentList.size() > 0)
+        {
+            Log.d("commentList","" + commentList.size());
+            Log.d("commentList","" + commentList.get(0).getContent());
+        }
     }
 
     /**
@@ -67,6 +81,7 @@ public class DisplayAQuestion extends AppCompatActivity {
         tagDept.setText(intent.getStringExtra("deptName"));
         questionBody.setText(intent.getStringExtra("content"));
         questionTitle.setText(intent.getStringExtra("questionTitle"));
+        this.questionID = intent.getIntExtra("questionID",0);
 
     }
 }

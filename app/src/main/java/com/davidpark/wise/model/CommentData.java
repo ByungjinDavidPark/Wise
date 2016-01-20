@@ -71,7 +71,7 @@ public class CommentData extends SQLiteOpenHelper {
     // Drop Question Table
     public void dropTable(){
 
-        String dropCommentTableQuery = "DROP TABLE IF EXISTS" + TABLE_CONTACTS;
+        String dropCommentTableQuery = "DROP TABLE IF EXISTS " + TABLE_CONTACTS;
 
         SQLiteDatabase db = this.getWritableDatabase();
 

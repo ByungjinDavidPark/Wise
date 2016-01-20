@@ -99,6 +99,8 @@ public class DisplayQuestions extends AppCompatActivity {
         intent.putExtra("deptName", "BCS");
         startActivity(intent);
 
+        // int questionID, int userID, int courseID, String title, int view, int vote, String content, String date)
+
     }
 
     /**
@@ -202,6 +204,7 @@ public class DisplayQuestions extends AppCompatActivity {
         intentForDisplayAQuestion.putExtra("questionTitle", questionList.get(viewID).getTitle());
         intentForDisplayAQuestion.putExtra("content", questionList.get(viewID).getContent());
         intentForDisplayAQuestion.putExtra("userID",questionList.get(viewID).getUserID());
+        intentForDisplayAQuestion.putExtra("questionID",questionList.get(viewID).getQuestionID());
         intentForDisplayAQuestion.putExtra("courseTitle",courseTitle);
         intentForDisplayAQuestion.putExtra("deptName","BCS");
         startActivity(intentForDisplayAQuestion);
