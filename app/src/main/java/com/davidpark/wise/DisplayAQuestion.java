@@ -42,10 +42,6 @@ public class DisplayAQuestion extends AppCompatActivity {
         CommentData dbConnectionComment = new CommentData(this);
         commentList = dbConnectionComment.getCommentByQuestionID(questionID);
 
-        Log.d("commentList","" + questionID);
-
-        Log.d("commentList","" + commentList.size());
-
 
         if (commentList.size() > 0)
         {
