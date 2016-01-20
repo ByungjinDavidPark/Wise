@@ -30,6 +30,7 @@ public class QuestionData extends SQLiteOpenHelper {
     private static final String TITLE = "title";
     private static final String CONTENT = "content";
     private static final String DATE = "date";
+    private static final String COURSE_ID = "course_id";
 
     public QuestionData(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -40,6 +41,7 @@ public class QuestionData extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_CONTACTS + "("
                 + QUESTION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + USER_ID + " INTEGER,"
+                + COURSE_ID + " INTEGER,"
                 + VIEW + " INTEGER,"
                 + VOTE + " INTEGER,"
                 + TITLE + " TEXT,"
@@ -69,6 +71,7 @@ public class QuestionData extends SQLiteOpenHelper {
         values.put(VIEW, question.getView()); // View
         values.put(VOTE, question.getVote()); // Vote
         values.put(DATE, question.getDate()); // Date
+        values.put(COURSE_ID, question.getCourseID());
 
         // Inserting Row
         db.insert(TABLE_CONTACTS, null, values);
@@ -90,11 +93,12 @@ public class QuestionData extends SQLiteOpenHelper {
             do {
                 Question question = new Question();
                 question.setUserID(Integer.parseInt(cursor.getString(1)));
-                question.setView(Integer.parseInt(cursor.getString(2)));
-                question.setVote(Integer.parseInt(cursor.getString(3)));
-                question.setTitle(cursor.getString(4));
-                question.setContent(cursor.getString(5));
-                question.setDate(cursor.getString(6));
+                question.setCourseID(Integer.parseInt(cursor.getString(2)));
+                question.setView(Integer.parseInt(cursor.getString(3)));
+                question.setVote(Integer.parseInt(cursor.getString(4)));
+                question.setTitle(cursor.getString(5));
+                question.setContent(cursor.getString(6));
+                question.setDate(cursor.getString(7));
                 questionList.add(question);
             } while (cursor.moveToNext());
         }
