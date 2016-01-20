@@ -76,4 +76,14 @@ public class UserData extends SQLiteOpenHelper{
         return userName;
     }
 
+    // Drop Question Table
+    public void dropTable(){
+
+        String dropUserTableQuery = "DROP TABLE IF EXISTS" + TABLE_CONTACTS;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        db.execSQL(dropUserTableQuery);
+    }
+
 }
