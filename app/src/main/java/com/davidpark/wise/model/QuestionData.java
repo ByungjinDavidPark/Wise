@@ -157,10 +157,25 @@ public class QuestionData extends SQLiteOpenHelper {
     // Drop Question Table
     public void dropTable(){
 
-        String dropQuestionTableQuery = "DROP TABLE IF EXISTS" + TABLE_CONTACTS;
+        String dropQuestionTableQuery = "DROP TABLE IF EXISTS " + TABLE_CONTACTS;
 
         SQLiteDatabase db = this.getWritableDatabase();
 
         db.execSQL(dropQuestionTableQuery);
+    }
+
+    //Create Question Table
+    public void createTable(){
+
+        String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_CONTACTS + "("
+                + QUESTION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + USER_ID + " INTEGER,"
+                + COURSE_ID + " INTEGER,"
+                + VIEW + " INTEGER,"
+                + VOTE + " INTEGER,"
+                + TITLE + " TEXT,"
+                + CONTENT + " TEXT,"
+                + DATE + " TEXT" + ")";
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL(CREATE_CONTACTS_TABLE);
     }
 }

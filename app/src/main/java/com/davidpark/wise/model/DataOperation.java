@@ -32,8 +32,9 @@ public class DataOperation extends Activity {
 
     public void addQuestionData(){
 
-        questionData.addQuestion(new Question(1, 1, "What is ISCG5400?", 0, 0, "Can someone tell me?", "2016"));
-        questionData.addQuestion(new Question(1, 1, "How is ISCG5400?", 0, 0, "Is it good?", "2016"));
+        //userID, CourseID, Title, View, Vote, Content, Date
+        questionData.addQuestion(new Question(1, 1, "What is ISCG5420?", 0, 0, "Can someone tell me?", "2016"));
+        questionData.addQuestion(new Question(1, 1, "How is ISCG5420?", 0, 0, "Is it good?", "2016"));
         questionData.addQuestion(new Question(2, 1, "Who is enrolling ISCG6421?", 0, 0, "Is it good?", "2016"));
         questionData.addQuestion(new Question(3, 2, "I love ISCG 6211", 0, 0, "I love it", "2016"));
         questionData.addQuestion(new Question(3, 2, "What is ISCG5400?", 0, 0, "Can someone tell me?", "2016"));
