@@ -91,6 +91,7 @@ public class QuestionData extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 Question question = new Question();
+                question.setQuestionID(Integer.parseInt(cursor.getString(0)));
                 question.setUserID(Integer.parseInt(cursor.getString(1)));
                 question.setCourseID(Integer.parseInt(cursor.getString(2)));
                 question.setView(Integer.parseInt(cursor.getString(3)));
@@ -118,6 +119,7 @@ public class QuestionData extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 Question question = new Question();
+                question.setQuestionID(Integer.parseInt(cursor.getString(0)));
                 question.setUserID(Integer.parseInt(cursor.getString(1)));
                 question.setCourseID(Integer.parseInt(cursor.getString(2)));
                 question.setView(Integer.parseInt(cursor.getString(3)));

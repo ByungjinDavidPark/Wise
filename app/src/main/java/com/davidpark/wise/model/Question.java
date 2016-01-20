@@ -5,6 +5,7 @@ public class Question {
 
     //private variables
 
+    int questionID;
     int userID;
     int courseID;
     String title;
@@ -17,6 +18,28 @@ public class Question {
     //empty constructor
     public Question(){
 
+    }
+
+    public int getQuestionID() {
+        return questionID;
+    }
+
+    public void setQuestionID(int questionID) {
+        this.questionID = questionID;
+    }
+
+    //constructor
+    public Question(int questionID, int userID, int courseID, String title, int view, int vote, String content, String date) {
+
+        this.questionID = questionID;
+
+        this.userID = userID;
+        this.title = title;
+        this.view = view;
+        this.vote = vote;
+        this.Content = content;
+        this.date = date;
+        this.courseID = courseID;
     }
 
     //constructor
