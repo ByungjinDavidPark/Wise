@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.davidpark.wise.model.DataOperation;
 import com.davidpark.wise.model.QuestionData;
 
 import java.util.Queue;
@@ -55,7 +56,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private void initDB() {
         QuestionData db = new QuestionData(this);
+        db.dropTable();
 
+        Intent insertSampleData = new Intent(this, DataOperation.class);
+        startActivity(insertSampleData);
 
     }
 

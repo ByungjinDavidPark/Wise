@@ -55,6 +55,15 @@
                 android:value="com.davidpark.wise.DisplayAQuestion" />
         </activity>
 
+        <activity
+            android:name="com.davidpark.wise.model.DataOperation"
+            android:label="@string/sub_activity4"
+            android:parentActivityName="com.davidpark.wise.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.davidpark.wise.MainActivity" />
+        </activity>
+
     </application>
 
 </manifest>

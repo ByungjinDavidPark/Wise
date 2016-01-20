@@ -21,6 +21,7 @@ public class DataOperation extends Activity {
         addUserData();
         addCommentData();
         addQuestionData();
+        finish();
     }
 
     public void addUserData(){
