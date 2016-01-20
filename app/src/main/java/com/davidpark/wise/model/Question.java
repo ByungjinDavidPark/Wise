@@ -6,11 +6,13 @@ public class Question {
     //private variables
 
     int userID;
+    int courseID;
     String title;
     int view;
     int vote;
     String Content;
     String date;
+
 
     //empty constructor
     public Question(){
@@ -18,14 +20,15 @@ public class Question {
     }
 
     //constructor
-    public Question(int userID, String title, int view, int vote, String content, String date) {
+    public Question(int userID, int courseID, String title, int view, int vote, String content, String date) {
 
         this.userID = userID;
         this.title = title;
         this.view = view;
         this.vote = vote;
-        Content = content;
+        this.Content = content;
         this.date = date;
+        this.courseID = courseID;
     }
 
     public String getTitle() {
@@ -74,5 +77,13 @@ public class Question {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public int getCourseID() {
+        return courseID;
+    }
+
+    public void setCourseID(int courseID) {
+        this.courseID = courseID;
     }
 }
