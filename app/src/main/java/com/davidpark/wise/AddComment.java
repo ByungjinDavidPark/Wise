@@ -16,6 +16,7 @@ import android.view.Window;
 import android.widget.Button;
 
 import com.davidpark.wise.model.Comment;
+import com.davidpark.wise.model.CommentData;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -26,6 +27,9 @@ import java.util.Date;
  * Created by o0sel on 18/01/2016.
  */
 public class AddComment extends AppCompatActivity {
+
+    // class reference
+    CommentData commentData;
 
     // view widgets
     private TextView tVQuestion;
@@ -41,7 +45,7 @@ public class AddComment extends AppCompatActivity {
 
     // database values
     // Comment(int userID, int questionID, String content, String date)
-    public Comment addComment;
+    public Comment aComment;
     private Integer userID = 1;
     private Integer questionID = 1;
     private String submissionText = "null";
@@ -68,7 +72,8 @@ public class AddComment extends AppCompatActivity {
                 //get QuestionID
                 submissionText = getSubmission();
                 submissionDate = getSubmissionDateDate();
-                addComment = new Comment(userID, questionID, submissionText, submissionDate);
+                aComment = new Comment(userID, questionID, submissionText, submissionDate);
+                commentData.addComment(aComment);
                 finish();
             }
         });

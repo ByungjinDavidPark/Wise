@@ -11,10 +11,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import com.davidpark.wise.model.Question;
+import com.davidpark.wise.model.QuestionData;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Queue;
 
 /**
  * Created by o0sel on 18/01/2016.
@@ -22,6 +24,8 @@ import java.util.Date;
 
 
 public class UploadQuestion extends AppCompatActivity {
+    // class reference
+    private QuestionData questionData;
 
     // view widgets
     private TextView tVTitle;
@@ -32,7 +36,7 @@ public class UploadQuestion extends AppCompatActivity {
 
     // database values
     // Question(int userID, String title, int view, int vote, String content, String date)
-    public Question uploadQuestion;
+    public Question aQuestion;
     private Integer userID = 1;
     private String submissionTitle = "null";
     private Integer view = 1;
@@ -63,7 +67,8 @@ public class UploadQuestion extends AppCompatActivity {
 //                    submissionTitle = etTitle.getText().toString();
 //                    submissionContent = etContent.getText().toString();
 //                    submissionDate = getSubmissionDateDate();
-//                    uploadQuestion = new Question(userID, submissionTitle, view, vote, submissionContent, submissionDate);
+//                    aQuestion = new Question(userID, submissionTitle, view, vote, submissionContent, submissionDate);
+                    questionData.addQuestion(aQuestion);
                 } catch (NullPointerException e) {
                 }
             }
