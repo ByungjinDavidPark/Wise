@@ -74,4 +74,17 @@ public class CommentData extends SQLiteOpenHelper {
         db.execSQL(dropCommentTableQuery);
     }
 
+    public void createTable(){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_CONTACTS + "("
+                + COMMENT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + USER_ID + " INTEGER,"
+                + QUESTION_ID + " INTEGER,"
+                + CONTENT + " TEXT,"
+                + DATE + " TEXT" + ")";
+
+        db.execSQL(CREATE_CONTACTS_TABLE);
+
+    }
+
 }
