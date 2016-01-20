@@ -61,8 +61,8 @@ public class UploadQuestion extends Activity {
         btnSubmit = (Button) findViewById(R.id.uploadQuestionSubmit);
 
         Intent intent = getIntent();
-        dptPath = intent.getStringExtra("courseTitle");
-        crsPath = intent.getStringExtra("deptName");
+        dptPath = intent.getStringExtra("deptName");
+        crsPath = intent.getStringExtra("courseTitle");
 
 
 
@@ -79,7 +79,8 @@ public class UploadQuestion extends Activity {
                     submissionTitle = etTitle.getText().toString();
                     submissionContent = etContent.getText().toString();
                     submissionDate = getSubmissionDate();
-                    uploadQuestion = new Question(userID, submissionTitle, view, vote, submissionContent, submissionDate);
+                    uploadQuestion = new Question(userID, 1,submissionTitle, view, vote, submissionContent, submissionDate);
+                    finish();
                 } catch (NullPointerException e) {
                 }
             }
