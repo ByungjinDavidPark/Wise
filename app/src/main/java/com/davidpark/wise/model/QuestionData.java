@@ -79,6 +79,32 @@ public class QuestionData extends SQLiteOpenHelper {
 
     }
 
+    // Getting Question by courseID
+    public List<Question> getQuestionByCourseID(int courseID){
+        List<Question> questionList = new ArrayList<Question>();
+        String query = "Select * FROM " + TABLE_CONTACTS + " WHERE course_id = " + courseID;
+        
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        // Looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Question question = new Question();
+                question.setUserID(Integer.parseInt(cursor.getString(1)));
+                question.setCourseID(Integer.parseInt(cursor.getString(2)));
+                question.setView(Integer.parseInt(cursor.getString(3)));
+                question.setVote(Integer.parseInt(cursor.getString(4)));
+                question.setTitle(cursor.getString(5));
+                question.setContent(cursor.getString(6));
+                question.setDate(cursor.getString(7));
+                questionList.add(question);
+            } while (cursor.moveToNext());
+        }
+
+        return questionList;
+    }
+
     // Getting All Questions
     public List<Question> getAllQuestions(){
         List<Question> questionList = new ArrayList<Question>();
@@ -127,5 +153,6 @@ public class QuestionData extends SQLiteOpenHelper {
         cursor.close();
         return view;
     }
+
 
 }
