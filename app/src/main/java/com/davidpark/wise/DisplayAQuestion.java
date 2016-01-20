@@ -27,6 +27,9 @@ public class DisplayAQuestion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.display_question_body);
 
+        Intent intent = getIntent();
+        intent.getExtras();
+
         init();
 
         //getQuesstionDatabyquestionId(course id);

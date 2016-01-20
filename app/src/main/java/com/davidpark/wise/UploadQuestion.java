@@ -43,6 +43,8 @@ public class UploadQuestion extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.upload_question);
+
+
         //binding
         tVTitle = (TextView) findViewById(R.id.uploadQuestionTitle);
         tVContent = (TextView) findViewById(R.id.uploadQuestionContent);
@@ -51,14 +53,16 @@ public class UploadQuestion extends AppCompatActivity {
         btnSubmit = (Button) findViewById(R.id.uploadQuestionSubmit);
 
 
+
+        //(int userID, int courseID, String title, int view, int vote, String content, String date)
         btnSubmit.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    submissionTitle = etTitle.getText().toString();
-                    submissionContent = etContent.getText().toString();
-                    submissionDate = getSubmissionDateDate();
-                    uploadQuestion = new Question(userID, submissionTitle, view, vote, submissionContent, submissionDate);
+//                    submissionTitle = etTitle.getText().toString();
+//                    submissionContent = etContent.getText().toString();
+//                    submissionDate = getSubmissionDateDate();
+//                    uploadQuestion = new Question(userID, submissionTitle, view, vote, submissionContent, submissionDate);
                 } catch (NullPointerException e) {
                 }
             }

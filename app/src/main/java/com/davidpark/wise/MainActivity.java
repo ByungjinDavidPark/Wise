@@ -10,6 +10,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.davidpark.wise.model.QuestionData;
+
+import java.util.Queue;
+
 
 /**
  * This class is main activity where user can choose department and course to see
@@ -26,6 +30,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private Spinner courseSelection;
     private static final String[]courses = {"Please Select Course", "ISCG5420" ,"ISCG6420", "ISCG7420"};
 
+    private static final int ISCG5420  = 0;
+    private static final int ISCG6420  = 1;
+    private static final int ISCG7420  = 2;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +42,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_main);
 
+        // clean db - drop table and create table just for development purpose
+        initDB();
+
+
         // initialize spinners
         init();
+
+
+
+    }
+
+    private void initDB() {
+        QuestionData db = new QuestionData(this);
+
 
     }
 
@@ -84,15 +105,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             case 1:
                 // Whatever you want to happen when the second item gets selected
                 intent.putExtra("courseName",courseSelection.getItemAtPosition(position).toString());
+                intent.putExtra("courseID",ISCG5420);
                 startActivity(intent);
                 break;
             case 2:
                 // Whatever you want to happen when the third item gets selected
                 intent.putExtra("courseName",courseSelection.getItemAtPosition(position).toString());
+                intent.putExtra("courseID",ISCG6420);
                 startActivity(intent);
                 break;
             case 3:
                 intent.putExtra("courseName",courseSelection.getItemAtPosition(position).toString());
+                intent.putExtra("courseID",ISCG7420);
                 startActivity(intent);
                 break;
 

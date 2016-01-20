@@ -33,7 +33,8 @@ public class DisplayQuestions extends AppCompatActivity {
     private QuestionData questionData; // database connection class
     private List<Question> questionList; // list that holds recent questions
     private Button btnAskQ; // button to ask question
-    private String courseTitle; // course id for display purpose
+    private String courseTitle; // courseTitle for display purpose
+    private int courseId; // courseId
     private TextView courseTitleText; // text view where course id is to be set.
 
 
@@ -48,7 +49,7 @@ public class DisplayQuestions extends AppCompatActivity {
         // get data from previous activity
         Intent getData = getIntent();
         courseTitle = getData.getStringExtra("courseName");
-
+        courseId =  Integer.parseInt(getData.getStringExtra("courseID"));
 
         init();
 
@@ -78,7 +79,7 @@ public class DisplayQuestions extends AppCompatActivity {
 
 
         questionData = new QuestionData(this);
-        questionList = questionData.getAllQuestions();
+        questionList = questionData.getQuestionByCourseID(courseId);
 
 
 
@@ -182,8 +183,10 @@ public class DisplayQuestions extends AppCompatActivity {
 
     private void startSubActivity(int viewID)
     {
-        Intent intent = new Intent(this,DisplayAQuestion.class);
-        intent.putExtra("courseID",questionList.get(viewID).getCourseID());
+        Intent intentForDisplayAQuestion = new Intent(this,DisplayAQuestion.class);
+        intentForDisplayAQuestion.putExtra("courseID",questionList.get(viewID).getCourseID());
+        intentForDisplayAQuestion.putExtra("questionID",questionList.get(viewID).getTitle());
+
     }
 
 
