@@ -18,8 +18,13 @@ public class DataOperation extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+<<<<<<< Updated upstream
 //        addUserData();
 //        addCommentData();
+=======
+        //addUserData();
+        //addCommentData();
+>>>>>>> Stashed changes
         addQuestionData();
         finish();
     }
