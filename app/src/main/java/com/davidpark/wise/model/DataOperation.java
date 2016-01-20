@@ -41,5 +41,9 @@ public class DataOperation extends Activity {
 
         commentData.addComment(new Comment(1, 1, "Very good", "2016"));
         commentData.addComment(new Comment(2, 2, "Very good", "2016"));
+        commentData.addComment(new Comment(1, 2, "Very good", "2016"));
+        commentData.addComment(new Comment(3, 3, "Very good", "2016"));
+        commentData.addComment(new Comment(1, 4, "Very good", "2016"));
+        commentData.addComment(new Comment(2, 3, "Very good", "2016"));
     }
 }
