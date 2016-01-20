@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private void initDB() {
         QuestionData db = new QuestionData(this);
         db.dropTable();
+        db.createTable();
 
         Intent insertSampleData = new Intent(this, DataOperation.class);
         startActivity(insertSampleData);
@@ -101,6 +102,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
 
         Intent intent = new Intent(this,DisplayQuestions.class);
+        intent.putExtra("courseName",courseSelection.getItemAtPosition(position).toString());
+        intent.putExtra("DeptName",deptSelection.getSelectedItem().toString());
 
         switch (position) {
             case 0:
@@ -108,18 +111,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 break;
             case 1:
                 // Whatever you want to happen when the second item gets selected
-                intent.putExtra("courseName",courseSelection.getItemAtPosition(position).toString());
                 intent.putExtra("courseID",ISCG5420);
                 startActivity(intent);
                 break;
             case 2:
                 // Whatever you want to happen when the third item gets selected
-                intent.putExtra("courseName",courseSelection.getItemAtPosition(position).toString());
                 intent.putExtra("courseID",ISCG6420);
                 startActivity(intent);
                 break;
             case 3:
-                intent.putExtra("courseName",courseSelection.getItemAtPosition(position).toString());
                 intent.putExtra("courseID",ISCG7420);
                 startActivity(intent);
                 break;

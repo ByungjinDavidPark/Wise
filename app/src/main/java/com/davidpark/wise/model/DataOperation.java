@@ -18,8 +18,8 @@ public class DataOperation extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addUserData();
-        addCommentData();
+//        addUserData();
+//        addCommentData();
         addQuestionData();
         finish();
     }

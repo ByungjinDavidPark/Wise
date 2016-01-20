@@ -40,6 +40,7 @@ public class UploadQuestion extends AppCompatActivity {
     private String submissionContent = "null";
     private String submissionDate;
 
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.upload_question);

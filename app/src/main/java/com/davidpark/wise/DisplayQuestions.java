@@ -49,7 +49,7 @@ public class DisplayQuestions extends AppCompatActivity {
         // get data from previous activity
         Intent getData = getIntent();
         courseTitle = getData.getStringExtra("courseName");
-        courseId =  Integer.parseInt(getData.getStringExtra("courseID"));
+        courseId =  getData.getIntExtra("courseID", 0);
 
         init();
 
@@ -94,6 +94,8 @@ public class DisplayQuestions extends AppCompatActivity {
     public void uploadQuestion()
     {
         Intent intent = new Intent(this,UploadQuestion.class);
+        intent.putExtra("courseTitle",courseTitle);
+        intent.putExtra("deptName","BCS");
         startActivity(intent);
 
     }
@@ -185,11 +187,11 @@ public class DisplayQuestions extends AppCompatActivity {
     {
         Intent intentForDisplayAQuestion = new Intent(this,DisplayAQuestion.class);
         intentForDisplayAQuestion.putExtra("courseID",questionList.get(viewID).getCourseID());
-        intentForDisplayAQuestion.putExtra("questionID",questionList.get(viewID).getTitle());
-        intentForDisplayAQuestion.putExtra("content",questionList.get(viewID).getContent());
+        intentForDisplayAQuestion.putExtra("questionID", questionList.get(viewID).getTitle());
+        intentForDisplayAQuestion.putExtra("content", questionList.get(viewID).getContent());
         intentForDisplayAQuestion.putExtra("userID",questionList.get(viewID).getUserID());
-
-
+        intentForDisplayAQuestion.putExtra("courseTitle",courseTitle);
+        intentForDisplayAQuestion.putExtra("deptName","BCS");
     }
 
 
