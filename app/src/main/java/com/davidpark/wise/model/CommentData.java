@@ -103,10 +103,10 @@ public class CommentData extends SQLiteOpenHelper {
         if (cursor.moveToFirst()){
             do{
                 Comment comment = new Comment();
-                comment.setUserID(Integer.parseInt(cursor.getString(0)));
-                comment.setQuestionID(Integer.parseInt(cursor.getString(1)));
-                comment.setContent(cursor.getString(2));
-                comment.setDate(cursor.getString(3));
+                comment.setUserID(Integer.parseInt(cursor.getString(1)));
+                comment.setQuestionID(Integer.parseInt(cursor.getString(2)));
+                comment.setContent(cursor.getString(3));
+                comment.setDate(cursor.getString(4));
             }while (cursor.moveToNext());
         }
 
