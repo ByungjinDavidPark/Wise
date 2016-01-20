@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.davidpark.wise.model.CommentData;
+
 import org.w3c.dom.Text;
 
 /**
@@ -16,11 +18,11 @@ import org.w3c.dom.Text;
  */
 public class DisplayAQuestion extends AppCompatActivity {
 
-    private TextView questionBody;
-    private Button addComment;
-    private TextView tagDept;
-    private TextView tagCourse;
-    private TextView questionTitle;
+    private TextView questionBody; // body of question
+    private Button addComment; // comment
+    private TextView tagDept;  //departmentTag
+    private TextView tagCourse; // courseTag
+    private TextView questionTitle; // title of question
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,12 @@ public class DisplayAQuestion extends AppCompatActivity {
         setContentView(R.layout.display_question_body);
 
         init();
+
+        CommentData dbConnectionComment = new CommentData(this);
+        dbConnectionComment.getCommentByQuestionID(1);
+
+
+
 
     }
 

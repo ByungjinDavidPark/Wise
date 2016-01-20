@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         QuestionData db = new QuestionData(this);
         db.dropTable();
         db.createTable();
+        db.close();
 
         Intent insertSampleData = new Intent(this, DataOperation.class);
         startActivity(insertSampleData);

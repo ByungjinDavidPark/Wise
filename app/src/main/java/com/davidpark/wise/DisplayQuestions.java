@@ -80,6 +80,8 @@ public class DisplayQuestions extends AppCompatActivity {
         questionData = new QuestionData(this);
         questionList = questionData.getQuestionByCourseID(courseId);
 
+        questionData.close();
+
 
 
         Log.d("Question list element ", "" + questionList.size());
