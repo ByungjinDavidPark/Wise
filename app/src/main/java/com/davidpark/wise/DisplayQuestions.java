@@ -80,7 +80,6 @@ public class DisplayQuestions extends AppCompatActivity {
         questionData = new QuestionData(this);
         questionList = questionData.getAllQuestions();
 
-        //questionData.getQuestionsbyCourseName(courseTitle);
 
 
         Log.d("Question list element ", "" + questionList.size());
@@ -178,23 +177,13 @@ public class DisplayQuestions extends AppCompatActivity {
     {
         Log.d("View" , "" + view.getId());
         int viewID = view.getId();
+        startSubActivity(viewID);
+    }
+
+    private void startSubActivity(int viewID)
+    {
         Intent intent = new Intent(this,DisplayAQuestion.class);
-
-        switch (viewID)
-        {
-            case 0:
-                intent.putExtra("questionTitle",questionList.get(viewID).getTitle());
-                startActivity(intent);
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-
-        }
-
+        intent.putExtra("courseID",questionList.get(viewID).getCourseID());
     }
 
 
