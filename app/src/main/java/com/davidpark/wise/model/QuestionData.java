@@ -79,7 +79,7 @@ public class QuestionData extends SQLiteOpenHelper {
 
     }
 
-    // Getting Question by courseID
+    // Getting Questions by courseID
     public List<Question> getQuestionByCourseID(int courseID){
         List<Question> questionList = new ArrayList<Question>();
         String query = "Select * FROM " + TABLE_CONTACTS + " WHERE course_id = " + courseID;

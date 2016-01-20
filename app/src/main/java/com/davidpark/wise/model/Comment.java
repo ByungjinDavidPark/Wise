@@ -9,6 +9,11 @@ public class Comment {
     String content;
     String date;
 
+    //empty constructor
+    public Comment(){
+
+    }
+
     // constructor
     public Comment(int userID, int questionID, String content, String date) {
 

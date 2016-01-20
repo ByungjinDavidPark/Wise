@@ -2,8 +2,12 @@ package com.davidpark.wise.model;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CommentData extends SQLiteOpenHelper {
 
@@ -85,6 +89,28 @@ public class CommentData extends SQLiteOpenHelper {
 
         db.execSQL(CREATE_CONTACTS_TABLE);
 
+    }
+
+    //Getting Comment by QuestionID
+    public List<Comment> getCommentByQuestionID(int questionID){
+        List<Comment> commentList = new ArrayList<Comment>();
+        String query = "SELECT * FROM " + TABLE_CONTACTS + " WHERE question_id = " + questionID;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        // Looping through all rows and adding to list
+        if (cursor.moveToFirst()){
+            do{
+                Comment comment = new Comment();
+                comment.setUserID(Integer.parseInt(cursor.getString(0)));
+                comment.setQuestionID(Integer.parseInt(cursor.getString(1)));
+                comment.setContent(cursor.getString(2));
+                comment.setDate(cursor.getString(3));
+            }while (cursor.moveToNext());
+        }
+
+        return commentList;
     }
 
 }
