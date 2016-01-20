@@ -26,6 +26,7 @@ public class DataOperation extends Activity {
 
     public void addUserData(){
 
+        //UserName, Password, Email
         userData.addUser(new User("Kevin", "123456", "kevin@gmail.com"));
         userData.addUser(new User("David", "123456", "david@gmail.com"));
         userData.addUser(new User("Kelvin", "123456", "kelvin@gmail.com"));
@@ -46,6 +47,7 @@ public class DataOperation extends Activity {
 
     public void addCommentData(){
 
+        //UserID, QuestionID, Content, Date
         commentData.addComment(new Comment(1, 1, "Very good", "2016"));
         commentData.addComment(new Comment(2, 2, "Very good", "2016"));
         commentData.addComment(new Comment(1, 2, "Very good", "2016"));
