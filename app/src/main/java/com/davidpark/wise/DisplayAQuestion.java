@@ -32,13 +32,16 @@ public class DisplayAQuestion extends AppCompatActivity {
 
     }
 
+    /**
+     *  This method is to initialise the components that will used in this activity.
+     */
     public void init() {
 
         questionBody = (TextView) findViewById(R.id.textQuestionBody);
         tagDept = (TextView) findViewById(R.id.tagDept);
         tagCourse = (TextView)findViewById(R.id.tagCourse);
         addComment = (Button) findViewById(R.id.btnAddCommment);
-        questionTitle = (TextView) findViewById(R.id.textCourseTitle);
+        questionTitle = (TextView) findViewById(R.id.textTitle);
 
 
         addComment.setOnClickListener(new View.OnClickListener() {
@@ -51,6 +54,7 @@ public class DisplayAQuestion extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+        // set view's texts
         tagCourse.setText(intent.getStringExtra("courseTitle"));
         tagDept.setText(intent.getStringExtra("deptName"));
         questionBody.setText(intent.getStringExtra("content"));

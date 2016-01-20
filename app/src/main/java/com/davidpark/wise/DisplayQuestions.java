@@ -65,8 +65,7 @@ public class DisplayQuestions extends AppCompatActivity {
         btnAskQ = (Button) findViewById(R.id.btnAsk);
         btnAskQ.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent)
-            {
+            public boolean onTouch(View view, MotionEvent motionEvent) {
                 uploadQuestion();
                 return false;
             }
@@ -95,7 +94,7 @@ public class DisplayQuestions extends AppCompatActivity {
     {
         Intent intent = new Intent(this,UploadQuestion.class);
         intent.putExtra("courseTitle",courseTitle);
-        intent.putExtra("deptName","BCS");
+        intent.putExtra("deptName", "BCS");
         startActivity(intent);
 
     }
@@ -176,6 +175,11 @@ public class DisplayQuestions extends AppCompatActivity {
         super.onRestart();
     }
 
+
+    /**
+     * This method is litneing event and call startSubActivity
+     * @param view - the question object is clicked
+     */
     public void eventFired(View view)
     {
         Log.d("View" , "" + view.getId());
@@ -183,7 +187,13 @@ public class DisplayQuestions extends AppCompatActivity {
         startSubActivity(viewID);
     }
 
-    private void startSubActivity(int viewID)
+    /**
+     *
+     * This method is executed when user click one of the questions to start
+     * sub-activity(Display A question)
+     * @param viewID - question view object that user selected
+     */
+    public void startSubActivity(int viewID)
     {
         Intent intentForDisplayAQuestion = new Intent(this,DisplayAQuestion.class);
         intentForDisplayAQuestion.putExtra("courseID",questionList.get(viewID).getCourseID());
