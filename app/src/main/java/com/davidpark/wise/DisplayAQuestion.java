@@ -40,7 +40,7 @@ public class DisplayAQuestion extends AppCompatActivity {
         init();
 
         CommentData dbConnectionComment = new CommentData(this);
-        commentList = dbConnectionComment.getCommentByQuestionID(1);
+        commentList = dbConnectionComment.getCommentByQuestionID(questionID);
 
         Log.d("commentList","" + questionID);
 
@@ -82,6 +82,5 @@ public class DisplayAQuestion extends AppCompatActivity {
         questionBody.setText(intent.getStringExtra("content"));
         questionTitle.setText(intent.getStringExtra("questionTitle"));
         this.questionID = intent.getIntExtra("questionID",0);
-
     }
 }
