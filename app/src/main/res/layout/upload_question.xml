@@ -4,8 +4,19 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="null"
+        android:id="@+id/uploadQuestionPath" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_space"/>
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_small"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Title"
         android:id="@+id/uploadQuestionTitle" />
@@ -16,9 +27,18 @@
         android:hint="Add title of your question here"
         android:id="@+id/uploadQuestionTitleText" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_space"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_space"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_small"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Content"
         android:id="@+id/uploadQuestionContent" />
@@ -31,6 +51,10 @@
         android:inputType="textMultiLine"
         android:ems="10"
         android:id="@+id/uploadQuestionContentText" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_space"/>
 
     <Button
         android:layout_width="wrap_content"

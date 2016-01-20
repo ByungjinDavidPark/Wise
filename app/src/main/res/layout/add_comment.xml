@@ -7,7 +7,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/margin_small"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="null"
         android:id="@+id/addCommentQuestion"
@@ -23,8 +23,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:padding="5dp"
+            android:layout_margin="@dimen/margin_small"
+            android:padding="@dimen/tag_padding"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Tag1"
             android:id="@+id/addCommentTag1"
@@ -33,8 +33,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:padding="5dp"
+            android:layout_margin="@dimen/margin_small"
+            android:padding="@dimen/tag_padding"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Tag2"
             android:id="@+id/addCommentTag2"
@@ -44,27 +44,27 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="20dp"/>
+        android:layout_height="@dimen/height_space"/>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_margin="3dp"
+        android:layout_height="@dimen/height_dividing_line"
+        android:layout_margin="@dimen/margin_small"
         android:background="@android:color/darker_gray"/>
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_margin="3dp"
+        android:layout_height="@dimen/height_dividing_line"
+        android:layout_margin="@dimen/margin_small"
         android:background="@android:color/darker_gray"/>
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="20dp"/>
+        android:layout_height="@dimen/height_space"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/margin_small"
         android:inputType="textMultiLine"
         android:ems="10"
         android:id="@+id/addCommentEdit"
@@ -75,6 +75,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_small"
         android:text="Submit"
         android:id="@+id/addCommentSubmit"
         android:layout_gravity="bottom|center_horizontal" />
