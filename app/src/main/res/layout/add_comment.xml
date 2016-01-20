@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="here will be question post"
+        android:text="null"
         android:id="@+id/addCommentQuestion"
         android:layout_weight="0.50" />
 
@@ -24,22 +24,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:padding="5dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Tag1"
             android:id="@+id/addCommentTag1"
-            android:background="#c7fdf3" />
+            android:background="@color/theme" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:padding="5dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Tag2"
             android:id="@+id/addCommentTag2"
-            android:background="#c7fdf3"/>
+            android:background="@color/theme"/>
 
     </LinearLayout>
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -50,6 +56,10 @@
         android:layout_height="1dp"
         android:layout_margin="3dp"
         android:background="@android:color/darker_gray"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
 
     <EditText
         android:layout_width="match_parent"

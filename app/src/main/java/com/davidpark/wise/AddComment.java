@@ -2,6 +2,7 @@ package com.davidpark.wise;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -24,7 +25,7 @@ import java.util.Date;
 /**
  * Created by o0sel on 18/01/2016.
  */
-public class AddComment extends Activity {
+public class AddComment extends AppCompatActivity {
 
     // view widgets
     private TextView tVQuestion;

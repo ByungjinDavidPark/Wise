@@ -5,4 +5,6 @@
     <string name="sub_activity2">Display Question</string>
     <string name="sub_activity3">Upload Question</string>
     <string name="sub_activity4">Add Comment</string>
+    <string name="department">Department</string>
+    <string name="course">Course</string>
 </resources>
